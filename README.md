@@ -1,4 +1,4 @@
-# Page Utilities
+# pageutilities
 
 This is a small library of helper functions for manipulating the DOM on web pages. It provides utility functions for checking and waiting for conditions on a page, and finding DOM elements.
 Installation
@@ -9,15 +9,33 @@ You can install the package using npm:
 npm install pageutilities
 ```
 
-## Usage
+## How tos
 
-The library exposes three functions:
+The library exposes multiple functions:
+
+## getElement
 
 ```js
 getElement(cssSelector, outTimer = 10000)
 ```
 
 This function returns a Promise that resolves with an object containing all elements that match a given CSS selector. If no elements are found, it will wait for mutations on the document body and retry until elements matching the selector are found or a timeout is reached.
+
+### Parameters
+
+* ```cssSelector``` (required): A string that specifies the CSS selector for the desired elements.
+* ```outTimer``` (optional): An integer that specifies the maximum number of milliseconds to wait for the desired elements to appear. If the elements are not found within this time, the function will reject with an error. The default value is 10000 (10 seconds).
+
+### Return Value
+
+This function returns a Promise that resolves with an object containing the CSS selector and the matching elements. The object has the following properties:
+
+* ```selector```: A string that specifies the CSS selector used to find the elements.
+* ```elements```: An array of DOM elements that match the CSS selector.
+
+If the desired elements are not found within the specified time, the function will reject with an error.
+
+### Usage
 
 ```js
 import { getElement } from 'pageutilities';
@@ -33,11 +51,40 @@ getElement('.my-class')
   });
 ```
 
+### Notes
+
+* This function uses ```querySelectorAll``` to find the desired elements, so the CSS selector must conform to the rules for this function.
+* The ```MutationObserver``` is used to detect changes to the DOM and update the element selection accordingly. This allows the function to be resilient to changes in the DOM structure.
+* If the ```outTimer``` parameter is not provided, the default value of 10000 milliseconds (10 seconds) will be used.
+* If the desired elements are not found within the specified time, the function will reject with an error.
+
+## waitForConditions
+
 ```js
 waitForConditions(conditions, callback, timeout = 10000, pollFreq = 100)
 ```
 
 This function waits for a set of conditions to be true before executing a callback function. It takes an array of conditions to be checked, a callback function to execute once all conditions are true, and an optional timeout and polling frequency.
+
+### Parameters
+
+* conditions: An array of conditions to be checked. Each condition can be a function that returns a boolean, or a string that represents a CSS selector for an element to be found.
+* callback: A callback function to be executed once all conditions are true. The callback function is passed an object that maps CSS selectors to the matching elements.
+* timeout: (Optional) The maximum time in milliseconds to wait for all conditions to be true. The default value is 10000ms.
+* pollFreq: (Optional) The polling frequency in milliseconds. The default value is 100ms.
+
+### Return Value
+
+This function does not return a value, but instead executes the callback function once all conditions are true.
+
+### Errors
+
+This function may throw the following errors:
+
+* TypeError: If the conditions parameter is not an array, or the callback parameter is not a function, or the timeout parameter is not a number greater than or equal to 1000.
+* Error: If a condition function throws an error or times out, or if the getElement function throws an error when trying to find an element.
+
+### Usage
 
 ```js
 
@@ -51,12 +98,22 @@ waitForConditions(['.my-class', '.my-class', '#my-id'], (elements) => {
 }, 10000, 500);
 ```
 
+## pollerLite
+
 ```js
 pollerLite(conditions, callback, maxTime = 10000)
 ```
 
 This is a light-weight version of 'waitForConditions'
 This function polls the DOM for a set of conditions to be met before executing a callback. It takes an array of conditions to check for, a callback function to execute when all conditions are true, and an optional maximum time limit for the polling.
+
+### Parameters
+
+* ```conditions``` (Array): An array of conditions to check for. Each element can either be a string selector or a function that returns a boolean value.
+* ```callback``` (Function): The function to execute when all conditions are met.
+* maxTime (Number, optional): The maximum time to wait in milliseconds. Default is 10000 (10 seconds).
+
+### Usage
 
 ```js
 import { pollerLite } from 'pageutilities';
@@ -68,6 +125,35 @@ pollerLite(['.my-class', '.my-class'], () => {
 }, 5000);
 
 ```
+
+## onUrlChange
+
+```js
+onUrlChange(callback)
+```
+
+This function allows you to execute a callback function whenever the URL changes in a single page application (SPA). It uses a MutationObserver to observe changes to the document body and detect URL changes.
+
+### Parameters
+
+* ```callback``` (required): The callback function to execute when the URL changes. This function should accept two parameters: oldHref and mutation. oldHref is a string that contains the URL before it changed. mutation is an object that describes the change that triggered the callback.
+
+### Errors
+
+* It should throw an error if callback is not a function and if any error is caused by the callback itself.
+
+### Usage
+
+```js
+onUrlChange((oldHref, mutation) => {
+  console.log(`URL changed from ${oldHref} to ${window.location.href}`);
+  console.log(mutation);
+});
+```
+
+## Contributing
+
+Contributions are welcome! If you have any issues, suggestions or improvements, please submit a pull request or open an issue.
 
 ## License
 

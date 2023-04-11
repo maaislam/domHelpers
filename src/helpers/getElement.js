@@ -10,7 +10,7 @@ const getElement = (cssSelector, outTimer = 10000) => {
   if (els.length > 0) {
     return Promise.resolve({
       selector: cssSelector,
-      elements: Array.from(els),
+      elements: els,
     });
   }
   return new Promise((resolve, reject) => {
@@ -21,7 +21,7 @@ const getElement = (cssSelector, outTimer = 10000) => {
           observer.disconnect();
           resolve({
             selector: cssSelector,
-            elements: Array.from(elems),
+            elements: elems,
           });
         }
       });
