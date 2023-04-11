@@ -13,7 +13,7 @@ npm install pageutilities
 
 The library exposes multiple functions:
 
-## getElement
+## :gem: getElement
 
 ```js
 getElement(cssSelector, outTimer = 10000)
@@ -58,7 +58,7 @@ getElement('.my-class')
 * If the ```outTimer``` parameter is not provided, the default value of 10000 milliseconds (10 seconds) will be used.
 * If the desired elements are not found within the specified time, the function will reject with an error.
 
-## waitForConditions
+## :gem: waitForConditions
 
 ```js
 waitForConditions(conditions, callback, timeout = 10000, pollFreq = 100)
@@ -98,7 +98,7 @@ waitForConditions(['.my-class', '.my-class', '#my-id'], (elements) => {
 }, 10000, 500);
 ```
 
-## pollerLite
+## :gem: pollerLite
 
 ```js
 pollerLite(conditions, callback, maxTime = 10000)
@@ -126,7 +126,7 @@ pollerLite(['.my-class', '.my-class'], () => {
 
 ```
 
-## onUrlChange
+## :gem: onUrlChange
 
 ```js
 onUrlChange(callback)
