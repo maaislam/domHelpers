@@ -1,6 +1,6 @@
 # Page Utilities
 
-This is a small library of helper functions for manipulating DOM on web pages. It provides utility functions for checking and waiting for conditions on a page, and finding DOM elements.
+This is a small library of helper functions for manipulating the DOM on web pages. It provides utility functions for checking and waiting for conditions on a page, and finding DOM elements.
 Installation
 
 You can install the package using npm:
