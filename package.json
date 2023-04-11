@@ -11,6 +11,16 @@
     "type": "git",
     "url": "git+https://github.com/maaislam/pageutilities.git"
   },
+  "keywords": [
+    "A/B testing",
+    "web development",
+    "JavaScript",
+    "front-end",
+    "DOM manipulation",
+    "optimization",
+    "Promise",
+    "mutationObserver"
+  ],
   "author": "Arafat",
   "license": "MIT",
   "bugs": {
