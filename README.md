@@ -6,7 +6,7 @@ Installation
 You can install the package using npm:
 
 ```bash
-npm install abtesthelpers
+npm install domHelpers
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ getElement(cssSelector, outTimer = 10000)
 This function returns a Promise that resolves with an object containing all elements that match a given CSS selector. If no elements are found, it will wait for mutations on the document body and retry until elements matching the selector are found or a timeout is reached.
 
 ```js
-import { getElement } from 'abtesthelpers';
+import { getElement } from 'domHelpers';
 
 // Find all elements with class 'my-class'
 getElement('.my-class')
@@ -41,7 +41,7 @@ This function waits for a set of conditions to be true before executing a callba
 
 ```js
 
-import { waitForConditions } from 'abtesthelpers';
+import { waitForConditions } from 'domHelpers';
 
 // Wait for two elements with class 'my-class' and an element with ID 'my-id'
 waitForConditions(['.my-class', '.my-class', '#my-id'], (elements) => {
@@ -59,7 +59,7 @@ This is a light-weight version of 'waitForConditions'
 This function polls the DOM for a set of conditions to be met before executing a callback. It takes an array of conditions to check for, a callback function to execute when all conditions are true, and an optional maximum time limit for the polling.
 
 ```js
-import { pollerLite } from 'abtesthelpers';
+import { pollerLite } from 'domHelpers';
 
 // Poll for two elements with class 'my-class'
 pollerLite(['.my-class', '.my-class'], () => {

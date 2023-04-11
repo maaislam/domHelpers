@@ -1,5 +1,5 @@
 {
-  "name": "abtesthelpers",
+  "name": "pageutils",
   "version": "1.0.0",
   "description": "Helper function to build client side A/B tests",
   "main": "dist/index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maaislam/abTestHelpers.git"
+    "url": "git+https://github.com/maaislam/pageutils.git"
   },
   "author": "Arafat",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maaislam/abTestHelpers/issues"
+    "url": "https://github.com/maaislam/pageutils/issues"
   },
-  "homepage": "https://github.com/maaislam/abTestHelpers#readme",
+  "homepage": "https://github.com/maaislam/pageutils#readme",
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
