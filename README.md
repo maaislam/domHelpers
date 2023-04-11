@@ -18,7 +18,6 @@ The library exposes multiple functions:
 ```js
 getElement(cssSelector, outTimer = 10000)
 ```
-
 This function returns a Promise that resolves with an object containing all elements that match a given CSS selector. If no elements are found, it will wait for mutations on the document body and retry until elements matching the selector are found or a timeout is reached.
 
 ### :gear: Parameters
