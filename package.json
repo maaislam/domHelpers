@@ -1,0 +1,27 @@
+{
+  "name": "abtesthelpers",
+  "version": "1.0.0",
+  "description": "Helper function to build client side A/B tests",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maaislam/abTestHelpers.git"
+  },
+  "author": "Arafat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maaislam/abTestHelpers/issues"
+  },
+  "homepage": "https://github.com/maaislam/abTestHelpers#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "babel-loader": "^9.1.2",
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
