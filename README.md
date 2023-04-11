@@ -1,4 +1,4 @@
-# :crossed_swords: pageutilities
+# pageutilities [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 This is a library of helper function. It provides utility functions for checking and waiting for conditions on a page, and finding DOM elements.
 Installation
